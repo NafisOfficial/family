@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node api.js && next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node api.js && next start",
     "lint": "eslint",
     "db:seed": "npx tsx scripts/seed.ts"
   },
@@ -19,8 +19,8 @@
     "lucide-react": "^1.17.0",
     "mongodb": "^7.2.0",
     "mongoose": "^9.6.3",
-    "next": "16.2.6",
-    "nodemailer": "^8.0.10",
+    "next": "^16.3.0",
+    "nodemailer": "^9.0.5",
     "radix-ui": "^1.4.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",
