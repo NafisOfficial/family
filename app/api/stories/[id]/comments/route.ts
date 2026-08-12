@@ -7,6 +7,8 @@ import Notification from "@/models/Notification";
 import Story from "@/models/Story";
 import { NextResponse } from "next/server";
 
+const detectionServer = process.env.detection_server || "http://127.0.0.1:8000";
+
 type AuthViewableStory = {
   visibility: string;
   author: { toString(): string };
@@ -127,7 +129,7 @@ export async function POST(
     let harmfulConfidence: number | null = null;
 
     try {
-      const classifierResponse = await fetch("http://127.0.0.1:8000/predict", {
+      const classifierResponse = await fetch(`${detectionServer}/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ comment: validation.data.content }),
